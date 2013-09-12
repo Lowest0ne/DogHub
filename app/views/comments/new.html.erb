@@ -1,7 +1,13 @@
 <h1>Contact Us</h1>
 
+
 <%= form_for @comment do |f| %>
 
+    <ul>
+      <% @comment.errors.full_messages.each do | error | %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
   <%= f.label :email %>
   <%= f.text_field :email %>
 

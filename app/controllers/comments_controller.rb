@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to '/comments', notice: "Thanks for the comment"
     else
-      redirect_to '/comments', notice: 'nope'
+      render action: 'new'
     end
   end
 
