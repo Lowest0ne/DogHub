@@ -15,8 +15,9 @@ feature "visitor contacts DogHub staff", %Q{
 #   * I must specify a last name
 
   scenario "I specify valid information" do
-    contact_count = Contact.count
+    contact_count = Comment.count
 
+    visit '/comments/index'
     click_link 'Contact us'
     page.should have_content('Contact Us')
 
@@ -29,7 +30,7 @@ feature "visitor contacts DogHub staff", %Q{
     click_button 'Submit'
 
     page.should have_content('Thanks for the comment')
-    expect( Contact.count ).to eql( contact_count + 1 )
+    expect( Comment.count ).to eql( contact_count + 1 )
 
   end
 
