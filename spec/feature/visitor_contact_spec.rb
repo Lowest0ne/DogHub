@@ -34,4 +34,19 @@ feature "visitor contacts DogHub staff", %Q{
 
   end
 
+
+  scenario "I specify invalid information" do
+    contact_count = Comment.count
+
+    visit '/comments'
+    click_link 'Contact us'
+    page.should have_content('Contact Us')
+    click_button 'Submit'
+
+    page.should have_content("can't be blank")
+    expect( Comment.count ).to eql( contact_count  )
+
+  end
+
+
 end
