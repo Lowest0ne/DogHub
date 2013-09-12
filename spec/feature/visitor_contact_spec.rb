@@ -17,7 +17,7 @@ feature "visitor contacts DogHub staff", %Q{
   scenario "I specify valid information" do
     contact_count = Comment.count
 
-    visit '/comments/index'
+    visit '/comments'
     click_link 'Contact us'
     page.should have_content('Contact Us')
 

@@ -1,6 +1,7 @@
 DogHub::Application.routes.draw do
 
-  get 'comments/index'
+  resources 'comments', only: [:index, :new]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
