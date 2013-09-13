@@ -1,24 +1,60 @@
 <%= form_for @comment do |f| %>
 
-    <ul>
-      <% @comment.errors.full_messages.each do | error | %>
-        <li><%= error %></li>
+  <h1>Contact Us</h1>
+  <div class="field">
+    <% if @comment.errors.full_messages_for(:first_name).empty? %>
+      <%= f.label :first_name, 'First Name' %><br>
+    <% else %>
+      <% @comment.errors.full_messages_for(:first_name).each do | error | %>
+        <%= f.label error, nil,  class: "error" %><br>
       <% end %>
-    </ul>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+    <% end %>
 
-  <%= f.label :subject %>
-  <%= f.text_field :subject %>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <% if @comment.errors.full_messages_for(:last_name).empty? %>
+      <%= f.label :last_name, 'Last Name' %><br>
+    <% else %>
+      <% @comment.errors.full_messages_for(:last_name).each do | error | %>
+        <%= f.label error, nil,  class: "error" %><br>
+      <% end %>
+    <% end %>
+    <%= f.text_field :last_name %>
+  </div>
 
-  <%= f.label :first_name, 'First Name' %>
-  <%= f.text_field :first_name %>
+  <div class="field">
+    <% if @comment.errors.full_messages_for(:email).empty? %>
+      <%= f.label :email %><br>
+    <% else %>
+      <% @comment.errors.full_messages_for(:email).each do | error | %>
+        <%= f.label error, nil,  class: "error" %><br>
+      <% end %>
+    <% end %>
+    <%= f.text_field :email %>
+  </div>
 
-  <%= f.label :last_name, 'Last Name' %>
-  <%= f.text_field :last_name %>
+  <div class="field">
+    <% if @comment.errors.full_messages_for(:subject).empty? %>
+      <%= f.label :subject %><br>
+    <% else %>
+      <% @comment.errors.full_messages_for(:subject).each do | error | %>
+        <%= f.label error, nil,  class: "error" %><br>
+      <% end %>
+    <% end %>
+    <%= f.text_field :subject %>
+  </div>
+  <div class="field">
+    <% if @comment.errors.full_messages_for(:description).empty? %>
+      <%= f.label :description %><br>
+    <% else %>
+      <% @comment.errors.full_messages_for(:description).each do | error | %>
+        <%= f.label error, nil,  class: "error" %><br>
+      <% end %>
+    <% end %>
+    <%= f.text_area :description, rows: 16 %>
+  </div>
 
-  <%= f.submit value: 'Submit' %>
+  <%= f.submit value: 'Submit', class: 'button' %>
 <% end %>

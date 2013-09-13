@@ -1,25 +1,33 @@
-<%= link_to 'Contact us', 'comments/new' %>
-<p id="notice"><%= notice %></p>
 
-<h1>List of Comments</h1>
-<table>
-  <tr>
-    <th>Email</th>
-    <th>Subject</th>
-    <th>Description</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th></th>
-  </tr>
-  <% @comments.each do | comment | %>
-  <tr>
-    <td><%= comment.email %></td>
-    <td><%= comment.subject %></td>
-    <td><%= comment.description %></td>
-    <td><%= comment.first_name %></td>
-    <td><%= comment.last_name %></td>
-    <td><%= link_to 'Delete', comment, method: :delete %></td>
-  </tr>
-  <% end %>
-</table>
+<div class="intro">
+  <h1>Welcome to Dog Hub</h1>
+  <h2>You can't hub like us</h2>
+  <p id="notice"><%= notice %></p>
+</div>
 
+<div class="content">
+  <h2>List of Comments</h2>
+  <table>
+    <tr>
+      <th>Email</th>
+      <th>Subject</th>
+      <th>Description</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Delete</th>
+    </tr>
+    <% @comments.each do | comment | %>
+    <tr>
+      <td><%= comment.email %></td>
+      <td><%= comment.subject %></td>
+      <td><%= comment.description %></td>
+      <td><%= comment.first_name %></td>
+      <td><%= comment.last_name %></td>
+      <td><%= link_to 'Delete', comment, method: :delete %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+<div class="contact_area">
+  <%= link_to 'Contact us', 'comments/new' %>
+</div>
